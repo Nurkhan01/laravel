@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test_page', 'TestController@index');
+Route::get('/test_page/create', 'TestController@create');
+Route::get('/test_page/update', 'TestController@update');
+Route::get('/test_page/delete', 'TestController@delete');
+Route::get('/test_page/restore_test', 'TestController@restoreTest');
