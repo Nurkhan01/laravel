@@ -17,6 +17,7 @@ class TestController extends Controller
             return $flight->cancelled;
         });
         dump($flights);
+        dd($flights);
 //        $test = Test::find(1);
 //        $str = 'string';
 //        dump($test->title); // Helper который не остонавливает работу скрипта
