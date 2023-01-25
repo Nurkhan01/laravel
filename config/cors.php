@@ -19,11 +19,11 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:8081/', 'http://localhost:8081/'],
+    'allowed_origins' => ['http://localhost:8080', 'http://localhost:8081'],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['Content-Type', 'Authorization', 'X-Requested-With'],
 
     'exposed_headers' => [],
 
