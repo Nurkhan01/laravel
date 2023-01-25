@@ -36,5 +36,8 @@ Route::get('tests/{test}/edit', 'TestController@edit');
 // PUT or PATCH requests
 Route::patch('tests/{test}', 'TestController@update');
 
-//Delete request
+// Delete request
 Route::delete('tests/{test}', 'TestController@destroy');
+
+// Register page without lesson
+Route::post('/register', 'RegisterController@register');
