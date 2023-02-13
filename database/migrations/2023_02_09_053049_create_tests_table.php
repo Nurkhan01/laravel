@@ -21,9 +21,12 @@ class CreateTestsTable extends Migration
             $table->unsignedBigInteger('likes');
             $table->boolean('is_published')->default(1);
             $table->timestamps();
+
             $table->softDeletes();
 
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->index('category_id', 'test_category_idx');
+            $table->foreign('category_id', 'test_category_fk')->on('categories')->references('id');
         });
     }
 

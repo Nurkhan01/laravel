@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Test;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
@@ -15,8 +16,12 @@ class TestController extends Controller
 ////        dump($test->title); // Helper который не остонавливает работу скрипта и выводит данные
 //        dd($str); // Helper который остонавливает работу скрипта и выводит данные
 
-        $test = Test::all();
-        dd($test);
+//        $test = Test::all();
+//        dd($test);
+//        $category = Category::find(2);
+//        dd($category->tests);
+        $test = Test::find(1);
+        dd($test->category);
     }
 
     // action create по документации должен просто вернуть страницу а не добавлять в бд данные, для добавление нужно использовать action store
@@ -119,16 +124,19 @@ class TestController extends Controller
 //    }
 
     // Фича laravel на action show
-    public function show(Test $test){
+    public function show(Test $test)
+    {
         return $test;
     }
 
-    public function edit(Test $test){
+    public function edit(Test $test)
+    {
         dd($test->title);
     }
 
     // update
-    public function update(Test $test){
+    public function update(Test $test)
+    {
         $data = \request()->validate([
             'title' => 'String',
             'content' => 'String',
@@ -141,7 +149,8 @@ class TestController extends Controller
     }
 
     // destroy
-    public function destroy(Test $test){
+    public function destroy(Test $test)
+    {
         $test->delete();
         return Test::all();
     }
