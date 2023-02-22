@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Tag;
 use App\Models\Test;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
@@ -20,8 +21,10 @@ class TestController extends Controller
 //        dd($test);
 //        $category = Category::find(2);
 //        dd($category->tests);
-        $test = Test::find(1);
-        dd($test->category);
+//        $test = Test::find(1);
+//        dd($test->tags);
+        $tag = Tag::find(1);
+        dd($tag->tests);
     }
 
     // action create по документации должен просто вернуть страницу а не добавлять в бд данные, для добавление нужно использовать action store

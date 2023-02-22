@@ -13,4 +13,8 @@ class Test extends Model
     public function category(){
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class, 'test_tags', 'test_id', 'tag_id');
+    }
 }

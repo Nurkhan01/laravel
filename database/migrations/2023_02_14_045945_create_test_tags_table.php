@@ -15,6 +15,15 @@ class CreateTestTagsTable extends Migration
     {
         Schema::create('test_tags', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('test_id');
+            $table->unsignedBigInteger('tag_id');
+
+            $table->index('test_id', 'test_tag_test_idx');
+            $table->index('tag_id', 'test_tag_tag_idx');
+            $table->foreign('test_id', 'test_tag_test_fk')->on('tests')->references('id');
+            $table->foreign('tag_id', 'test_tag_tag_fk')->on('tags')->references('id');
+
             $table->timestamps();
         });
     }

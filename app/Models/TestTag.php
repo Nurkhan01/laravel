@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TestTag extends Model
 {
     use HasFactory;
+    protected $guarded = false;
 }
