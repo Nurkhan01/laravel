@@ -24,6 +24,5 @@ class DatabaseSeeder extends Seeder
             $tagsIds = $tags->random(5)->pluck('id');
             $test->tags()->attach($tagsIds);
         }
-        // \App\Models\User::factory(10)->create();
-    }
+        \App\Models\User::factory(10)->create();   }
 }
