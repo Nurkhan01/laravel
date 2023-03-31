@@ -39,5 +39,12 @@ Route::patch('tests/{test}', 'TestController@update');
 // Delete request
 Route::delete('tests/{test}', 'TestController@destroy');
 
+// Group request for single action
+Route::group(['namespace' => 'Test'], function () {
+    Route::get('/tests', 'IndexController');
+    Route::post('/tests_store', 'StoreController');
+    Route::patch('/tests/{test}', 'UpdateController');
+});
+
 // Register page without lesson
 Route::post('/register', 'RegisterController@register');
