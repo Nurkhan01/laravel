@@ -31,3 +31,8 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+// Group request for single action
+Route::group(['namespace' => 'Test'], function () {
+    Route::get('/tests', 'IndexController')->middleware(['admin.role']);
+});
