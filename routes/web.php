@@ -30,6 +30,7 @@ Route::post('tests', 'TestController@store');
 
 // Get Request Only one data
 Route::get('tests/{test}', 'TestController@show');
+Route::get('/password', 'TestController@password');
 // GET Edit
 Route::get('tests/{test}/edit', 'TestController@edit');
 

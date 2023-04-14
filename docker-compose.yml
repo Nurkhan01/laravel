@@ -19,17 +19,28 @@ services:
         volumes:
             - ./:/var/www
         container_name: dct_app
-
+        depends_on:
+            - db
     db:
-        image: mariadb:10.6
+        image: mysql:8.0
         restart: always
+        volumes:
+            - ./tmp/db:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: notSecureChangeMe
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: bekzat
+        ports:
+            - "8877:3306"
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+        container_name: dct_db
 
     phpmyadmin:
         image: phpmyadmin
         restart: always
         ports:
-            - "8877:80"
+            - "8878:80"
         environment:
             - PMA_ARBITRARY=1
+        container_name: dct_phpmyadmin
+
+

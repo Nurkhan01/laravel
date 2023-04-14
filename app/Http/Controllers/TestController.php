@@ -157,4 +157,8 @@ class TestController extends Controller
         $test->delete();
         return Test::all();
     }
+
+    public function password(){
+        return ENV('DB_PASSWORD');
+    }
 }
