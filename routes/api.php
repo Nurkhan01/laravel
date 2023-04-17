@@ -36,3 +36,10 @@ Route::group([
 Route::group(['namespace' => 'Test'], function () {
     Route::get('/tests', 'IndexController')->middleware(['admin.role']);
 });
+
+Route::group(['namespace' => 'Permissions'], function () {
+    Route::get('/role', 'RolesController@index');
+    Route::post('/create-role-and-permission', 'RolesController@createRoleAndPermission');
+});
+
+

@@ -159,6 +159,6 @@ class TestController extends Controller
     }
 
     public function password(){
-        return ENV('DB_PASSWORD');
+        return '1,2, qweqweqwe';
     }
 }
