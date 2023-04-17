@@ -23,9 +23,10 @@ class Service
     public function update($role, $data)
     {
         if($role->update($data)){
-            $rolePermission = DB::table('role_has_permissions')->get();
+            $role->fresh();
+            return $role;
         }
-        return $rolePermission;
+        return false;
     }
     public function index(){
         $rolePermission = DB::table('role_has_permissions')->get();

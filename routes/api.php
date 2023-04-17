@@ -40,6 +40,11 @@ Route::group(['namespace' => 'Test'], function () {
 Route::group(['namespace' => 'Permissions'], function () {
     Route::get('/role', 'RolesController@index');
     Route::post('/create-role-and-permission', 'RolesController@createRoleAndPermission');
+    Route::post('/update-role', 'RolesController@updateRole');
 });
+
+Route::get('/get-user-roles', 'UserController@GetUserRoles');
+
+
 
 
