@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\UserRegisterJob;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +21,7 @@ class RegisterController extends Controller
             'password' => Hash::make($validatedData['password']),
             'name' => $validatedData['name'],
         ]);
+        UserRegisterJob::dispatch($user->toArray());
         return response()->json([
             'message' => 'User registered successfully'
         ], 200);
