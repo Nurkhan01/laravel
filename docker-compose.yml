@@ -44,3 +44,5 @@ services:
         container_name: dct_phpmyadmin
 
 
+volumes:
+    rabbitmq_data:
