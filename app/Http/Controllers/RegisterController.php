@@ -11,6 +11,15 @@ class RegisterController extends Controller
 {
     public function register(Request $request)
     {
+        $displayName = 'ProcessDataJob';
+
+        UserRegisterJob::dispatch(['data' => 1], $displayName)->onQueue('user');
+
+
+        return response()->json([
+            'message' => 'User registered successfully'
+        ], 200);
+
         $validatedData = $request->validate([
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
@@ -21,7 +30,10 @@ class RegisterController extends Controller
             'password' => Hash::make($validatedData['password']),
             'name' => $validatedData['name'],
         ]);
-        UserRegisterJob::dispatch($user->toArray());
+
+        $displayName = 'ProcessDataJob';
+
+        UserRegisterJob::dispatch($user->toArray(), $displayName)->onQueue('user');
         return response()->json([
             'message' => 'User registered successfully'
         ], 200);

@@ -73,6 +73,7 @@ return [
 
         'rabbitmq' => [
             'driver' => 'rabbitmq',
+            'queue'=> 'user',
             'hosts' => [
                 [
                     'host' => env('RABBITMQ_HOST', '127.0.0.1'),
@@ -80,6 +81,19 @@ return [
                     'user' => env('RABBITMQ_USER', 'guest'),
                     'password' => env('RABBITMQ_PASSWORD', 'guest'),
                     'vhost' => env('RABBITMQ_VHOST', '/'),
+                ],
+            ],
+            'options' => [
+                'exchange' => [
+                    'name' => 'user-x',
+                    'type' => 'direct',
+                    'declare' => true,
+                ],
+                'queue' => [
+                    'declare' => true,
+                ],
+                'consumer' => [
+                    'tag' => '',
                 ],
             ],
         ],
