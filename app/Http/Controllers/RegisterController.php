@@ -12,14 +12,9 @@ class RegisterController extends AMQPBaseController
 {
     public function register(Request $request)
     {
-        $displayName = 'ProcessDataJob';
-
-        UserRegisterJob::dispatch(['data' => 1], $displayName)->onQueue('user');
-
-
-        return response()->json([
-            'message' => 'User registered successfully'
-        ], 200);
+//        $displayName = 'ProcessDataJob';
+//
+//        UserRegisterJob::dispatch(['data' => 1], $displayName)->onQueue('user');
 
         $validatedData = $request->validate([
             'email' => 'required|email|unique:users',
@@ -31,16 +26,10 @@ class RegisterController extends AMQPBaseController
             'password' => Hash::make($validatedData['password']),
             'name' => $validatedData['name'],
         ]);
-<<<<<<< HEAD
 //        UserRegisterJob::dispatch($user->toArray());
 //        dispatch((new UserRegisterJob($user->toArray())))->onQueue('user_queue');
         $this->amqpService->publishMessage($user);
-=======
 
-        $displayName = 'ProcessDataJob';
-
-        UserRegisterJob::dispatch($user->toArray(), $displayName)->onQueue('user');
->>>>>>> aa83dcb099deb332c04ee06e8ce8046004cf4794
         return response()->json([
             'message' => 'User registered successfully'
         ], 200);

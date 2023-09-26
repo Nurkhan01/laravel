@@ -15,7 +15,7 @@ class AMQPService
      */
     public function __construct()
     {
-        $this->connection = new AMQPStreamConnection('192.168.10.81', 5672, 'guest', 'guest');
+        $this->connection = new AMQPStreamConnection('192.168.0.63', 5672, 'guest', 'guest');
         $this->channel = $this->connection->channel();
     }
 
