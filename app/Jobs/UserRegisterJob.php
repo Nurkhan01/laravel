@@ -16,6 +16,7 @@ class UserRegisterJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $data;
+    public $job;
 
     /**
      * Create a new job instance.
@@ -26,6 +27,7 @@ class UserRegisterJob implements ShouldQueue
     {
         //
         $this->data = $data;
+        $this->displayName = 'App\Jobs\UserRegisterJob';
     }
 
     /**

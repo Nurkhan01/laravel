@@ -73,7 +73,11 @@ return [
 
         'user_notification' => [
             'driver' => 'rabbitmq',
+<<<<<<< HEAD
             'connection' => 'direct',
+=======
+            'queue'=> 'user',
+>>>>>>> aa83dcb099deb332c04ee06e8ce8046004cf4794
             'hosts' => [
                 [
                     'host' => env('RABBITMQ_HOST', '127.0.0.1'),
@@ -84,6 +88,7 @@ return [
                 ],
             ],
             'options' => [
+<<<<<<< HEAD
                 'queue' => [
                     'job' => \App\Jobs\UserRegisterJob::class,
                     'exchange' => 'notification_user',
@@ -95,6 +100,20 @@ return [
                 ],
             ],
             'queue' => env('RABBITMQ_QUEUE', 'default')
+=======
+                'exchange' => [
+                    'name' => 'user-x',
+                    'type' => 'direct',
+                    'declare' => true,
+                ],
+                'queue' => [
+                    'declare' => true,
+                ],
+                'consumer' => [
+                    'tag' => '',
+                ],
+            ],
+>>>>>>> aa83dcb099deb332c04ee06e8ce8046004cf4794
         ],
     ],
 
