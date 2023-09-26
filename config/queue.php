@@ -71,8 +71,9 @@ return [
             'after_commit' => false,
         ],
 
-        'rabbitmq' => [
+        'user_notification' => [
             'driver' => 'rabbitmq',
+            'connection' => 'direct',
             'hosts' => [
                 [
                     'host' => env('RABBITMQ_HOST', '127.0.0.1'),
@@ -82,6 +83,18 @@ return [
                     'vhost' => env('RABBITMQ_VHOST', '/'),
                 ],
             ],
+            'options' => [
+                'queue' => [
+                    'job' => \App\Jobs\UserRegisterJob::class,
+                    'exchange' => 'notification_user',
+                    'exchange_type' => 'direct',
+                    'exchange_routing_key' => 'user_key',
+                    'reroute_failed' => true,
+                    'failed_exchange' => 'failed-exchange',
+                    'failed_routing_key' => 'application-x.%s',
+                ],
+            ],
+            'queue' => env('RABBITMQ_QUEUE', 'default')
         ],
     ],
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f439fa4db39ae38217e19a89547cacf4",
+    "content-hash": "b42508d0db9ae25097d54ac762635ac3",
     "packages": [
         {
             "name": "barryvdh/laravel-cors",
@@ -2889,16 +2889,16 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v3.5.3",
+            "version": "v3.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "bccaaf8ef8bcf18b4ab41e645e92537752b887bd"
+                "reference": "1aecbd182b35eb039667c50d7d92d71f105be779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/bccaaf8ef8bcf18b4ab41e645e92537752b887bd",
-                "reference": "bccaaf8ef8bcf18b4ab41e645e92537752b887bd",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/1aecbd182b35eb039667c50d7d92d71f105be779",
+                "reference": "1aecbd182b35eb039667c50d7d92d71f105be779",
                 "shasum": ""
             },
             "require": {
@@ -2964,9 +2964,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-amqplib/php-amqplib/issues",
-                "source": "https://github.com/php-amqplib/php-amqplib/tree/v3.5.3"
+                "source": "https://github.com/php-amqplib/php-amqplib/tree/v3.5.4"
             },
-            "time": "2023-04-03T18:25:49+00:00"
+            "time": "2023-07-01T11:25:08+00:00"
         },
         {
             "name": "phpoption/phpoption",

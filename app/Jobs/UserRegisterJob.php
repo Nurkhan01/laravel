@@ -37,4 +37,5 @@ class UserRegisterJob implements ShouldQueue
     {
         echo 'Event has been handled' . PHP_EOL;
     }
+
 }
